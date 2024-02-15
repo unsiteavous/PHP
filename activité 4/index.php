@@ -22,6 +22,8 @@
     <input type="email" id="mail" name="mail" required>
     <label for="password">Mot de passe :</label>
     <input type="password" id="password" name="password" required>
+    <label for="password2">Vérifier le Mot de passe :</label>
+    <input type="password" id="password2" name="password2" required>
     <input type="submit" name="submit" value="S'inscrire">
   </form>
 </body>
