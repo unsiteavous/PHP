@@ -1,4 +1,4 @@
-# Activité algorithmie avec PHP :
+# PHP - Activité 1 : algorithmie avec PHP
 
 - [X] Vérifier que l’install de wampp existe et est fonctionnelle.
   - [X] Nouveau projet = nouveau GIT = nouveau dossier (clonage) = nouveau virtualHost = nouvelle installation
@@ -32,10 +32,10 @@
   'paon'=>['graines', FALSE],
   ]
 
-  - [] On vérifie que chaque animal a bien mangé son repas (true ou false)
-  - [] Si c'est true, dit que tout est OK
-  - [] Si c'est false, on change la valeur à true, en disant qu'on vient de lui donner à manger.
-  - [] POUR Aller plus loin : on met tout ça dans une autre boucle, while. Tant que la variable "validation" est n'est à true, on donne à manger aux animaux. Lorsque tous les animaux ont mangé, on passe la variable validation à true, et on sort de la boucle, en disant que le gardien a fait du bon travail !
+  - [X] On vérifie que chaque animal a bien mangé son repas (true ou false)
+  - [X] Si c'est true, dit que tout est OK
+  - [X] Si c'est false, on change la valeur à true, en disant qu'on vient de lui donner à manger.
+  - [X] POUR Aller plus loin : on met tout ça dans une autre boucle, while. Tant que la variable "validation" est n'est à true, on donne à manger aux animaux. Lorsque tous les animaux ont mangé, on passe la variable validation à true, et on sort de la boucle, en disant que le gardien a fait du bon travail !
 
 ### Activité en autonomie :
 

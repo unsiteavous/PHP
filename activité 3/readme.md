@@ -1,4 +1,4 @@
-# Variables de Session
+# PHP - activité 3 : Variables de Session
 
 Afin d'appréhender les variables de session, nous allons réaliser un formulaire d'authentification, et une page d'admin. On ne pourra accéder à la page admin que si l'on est connecté. Dès qu'on se déconnecte, on perd l'accès.
 

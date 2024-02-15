@@ -1,5 +1,4 @@
-# PHP – activité 2
-# Formulaire
+# PHP – activité 2 : Formulaire
 
 Maintenant qu’on a vu comment on envoie du html sur une page web, on a envie d’avoir un retour : Que l’utilisateur nous réponde, et qu’on traite sa réponse.
 ## Formulaire de contact
