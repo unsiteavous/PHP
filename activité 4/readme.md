@@ -17,9 +17,9 @@ Pour son site de vente en ligne, votre client souhaite que vous lui fassiez un f
 ## Traitement des informations
 Une fois le formulaire soumis, on a besoin de s'assurer que les infos reçues sont bien celles attendues (Sécurité !).
 - vérifier que tous les champs sont remplis.
-- l'adresse mail a bien le bon format
-- pas de code malveillant dans les champs textes
-- le mot de passe contient bien 8 caractères minimum
+- l'adresse mail a bien le bon format (filter)
+- pas de code malveillant dans les champs textes (sécuriser le HTML)
+- le mot de passe contient bien 8 caractères minimum (hasher)
 
 Si les informations données ne sont pas bonnes, il faudra retourner sur le formulaire et afficher une erreur.
 
@@ -37,10 +37,11 @@ le prochain utilisateur prendra l'ID 4. Celui d'après, l'ID 7.
 Bien que nous travaillerons ici avec un fichier CSV comme base de données, nous allons créer une classe spécial qui gérera les connexions, lectures, écritures, ... à notre fichier, à notre base.
 - Cette classe aura comme propriété le fichier CSV auquel se connecter.
 - Elle aura plusieurs méthodes :
-  - une méthode privée pour ouvrir le fichier
-  - une méthode privée pour fermer le fichier
-  - une méthode publique pour lire le fichier
-  - une méthode publique pour écrire dans le fichier
+  - une méthode publique pour enregistrer un utilisateur
+  - une méthode publique pour récupérer tous les utilisateurs
+  - une méthode pour retrouver un utilisateur en fonction de son ID
+  - une méthode pour retrouver un utilisateur en fonciton de son mail
+  - supprimer un utilisateur.
 
 ## Affichage des retours
 Une fois que le traitement est terminé, nous devons renvoyer des infos à l'utilisateur. Soit tout a fonctionné, et on lui renvoie un message de succès, soit quelque chose s'est mal passé, et c'est l'échec.
