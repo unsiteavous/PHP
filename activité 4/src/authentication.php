@@ -8,9 +8,19 @@ if (isset($_POST['mail']) && isset($_POST['password']) && !empty($_POST['mail'])
   $Database = new Database();
 
   $userAvecCeMail = $Database->getThisUtilisateurByMail($_POST['mail']);
-
-  if (password_verify($_POST['password'], $userAvecCeMail->getPassword())) {
+  if ($userAvecCeMail) {
+    if (password_verify($_POST['password'], $userAvecCeMail->getPassword())) {
       $_SESSION['connecté'] = TRUE;
-      $_SESSION['user'] = $userAvecCeMail;
+      $_SESSION['user'] = serialize($userAvecCeMail);
+      header('location: ../tableau-de-bord.php');
+      die;
+    }
   }
+
 }
+
+// Si on arrive là c'est que quelque chose s'est mal passé.
+// Afin d'éviter de donner des indications sur la nature de l'échec à l'utilisateur,
+// on lui renvoie une erreur générale.
+header('location: ../connexion.php?erreur');
+die;

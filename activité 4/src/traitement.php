@@ -32,7 +32,7 @@ if (isset($_POST['prenom']) && isset($_POST['nom']) && isset($_POST['mail']) && 
   $retour = $Database->saveUtilisateur($user);
 
   if ($retour) {
-    header('location:../confirmation.php');
+    header('location:../connexion.php?succes=inscription');
     die;
   } else {
     header('location:../index.php?erreur='.ERREUR_ENREGISTREMENT);

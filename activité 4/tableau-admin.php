@@ -9,13 +9,15 @@ if (!isset($_SESSION['connecté']) && empty($_SESSION['user'])) {
 }
 $user = unserialize($_SESSION['user']);
 
+if (!$user->isAdmin()) {
+  header('location: tableau-de-bord.php');
+  die;
+}
+
 if (isset($_GET['section'])) {
   switch($_GET['section']){
-    case 'compte':
-      $section = 'compte';
-    break 1;
-    case 'abonnements':
-      $section = 'abonnements';
+    case 'utilisateurs':
+      $section = 'utilisateurs';
     break 1;
     default:
       $section = null;
@@ -29,8 +31,8 @@ include 'includes/header.php';
 <main>
   <?php include 'includes/colonne.php'; ?>
   <div class="content">
-    <?php if ($section == "compte") {
-      include 'includes/section-compte.php';
+    <?php if ($section == "utilisateurs") {
+      include 'includes/section-utilisateurs.php';
     }?>
   </div>
 </main>

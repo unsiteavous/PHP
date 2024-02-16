@@ -6,6 +6,7 @@ class User {
   private $_prenom;
   private $_mail;
   private $_password;
+  private $_role;
 
   /**
    * Création d'un nouvel utilisateur
@@ -15,18 +16,19 @@ class User {
    * @param string $password Le mot de passe chiffré de l'utilisateur
    * @param int $id       L'id de l'utilisateur si on le connait, sinon rien.
    */
-  function __construct(string $nom, string $prenom,string $mail,string $password,int|string $id = "à créer"){
+  function __construct(string $nom, string $prenom,string $mail,string $password,int|string $id = "à créer", $role = "user"){
     $this->setId($id);
     $this->setNom($nom);
     $this->setPrenom($prenom);
     $this->setMail($mail);
     $this->setPassword($password);
+    $this->setRole($role);
   }
 
-  function getId(): int {
+  public function getId(): int {
     return $this->_id;
   }
-  function setId(int|string $id){
+  public function setId(int|string $id){
     if (is_string($id) && $id === "à créer") {
       $this->_id = $this->CreerNouvelId();
     }else {
@@ -34,29 +36,44 @@ class User {
     }
 
   }
-  function getNom(): string {
+  public function getNom(): string {
     return $this->_nom;
   }
-  function setNom(string $nom){
+  public function setNom(string $nom){
     $this->_nom = $nom;
   }
-  function getPrenom(): string {
+  public function getPrenom(): string {
     return $this->_prenom;
   }
-  function setPrenom(string $prenom){
+  public function setPrenom(string $prenom){
     $this->_prenom = $prenom;
   }
-  function getMail(): string {
+  public function getMail(): string {
     return $this->_mail;
   }
-  function setMail(string $mail){
+  public function setMail(string $mail){
     $this->_mail = $mail;
   }
-  function getPassword(): string {
+  public function getPassword(): string {
     return $this->_password;
   }
-  function setPassword(string $password){
+  public function setPassword(string $password){
     $this->_password = $password;
+  }
+
+  public function getRole(): string {
+    return $this->_role;
+  }
+  public function setRole(string $role): void {
+    $this->_role = $role;
+  }
+
+  public function isAdmin() {
+    if ($this->getRole() == "admin") {
+      return true;
+    }else {
+      return false;
+    }
   }
 
   private function CreerNouvelId(){
@@ -71,7 +88,7 @@ class User {
     }
 
     // Ensuite, on regarde si un chiffre existe dans le tableau, et si non, on l'incrémente
-    $i = 0;
+    $i = 1;
     $unique = false;
     while ($unique === false) {
       if (in_array($i, $IDs)) {
@@ -89,7 +106,8 @@ class User {
       "nom" => $this->getNom(),
       "prenom" => $this->getPrenom(),
       "mail" => $this->getMail(),
-      "password" => $this->getPassword()
+      "password" => $this->getPassword(),
+      "role" => $this->getRole()
     ];
   }
 }
