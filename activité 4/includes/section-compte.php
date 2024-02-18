@@ -1,4 +1,4 @@
-<section class="infos-comspante">
+<section class="infos-compte">
   <h3>Mes informations</h3>
   <div class="flex">
     <div class="flex column">
@@ -14,4 +14,5 @@
       <span><?= $user->getRole() ?></span>
     </div>
   </div>
+  <button onclick="location.href='src/authentication?suppression=<?= $user->getId() ?>'">Supprimer mon compte</button>
 </section>

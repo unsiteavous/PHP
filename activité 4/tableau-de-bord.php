@@ -19,7 +19,7 @@ if (isset($_GET['section'])) {
     break 1;
     default:
       $section = null;
-    break;
+    break 1;
   }
 } else {
   $section = null;
@@ -31,6 +31,8 @@ include 'includes/header.php';
   <div class="content">
     <?php if ($section == "compte") {
       include 'includes/section-compte.php';
-    }?>
+    } else { ?>
+      <p>Vous n'avez pas encore d'abonnements.</p>
+    <?php } ?>
   </div>
 </main>

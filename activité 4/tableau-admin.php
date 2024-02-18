@@ -1,6 +1,7 @@
 <?php
 session_start();
 require 'src/classes/User.php';
+require 'src/classes/Database.php';
 
 if (!isset($_SESSION['connecté']) && empty($_SESSION['user'])) {
   // abort
@@ -21,7 +22,7 @@ if (isset($_GET['section'])) {
     break 1;
     default:
       $section = null;
-    break;
+    break 1;
   }
 } else {
   $section = null;
@@ -29,10 +30,12 @@ if (isset($_GET['section'])) {
 include 'includes/header.php';
 ?>
 <main>
-  <?php include 'includes/colonne.php'; ?>
+  <?php include 'includes/colonne-admin.php'; ?>
   <div class="content">
-    <?php if ($section == "utilisateurs") {
+    <?php
+      $DB = new Database();
+      $utilisateurs = $DB->getAllUtilisateurs();
       include 'includes/section-utilisateurs.php';
-    }?>
+    ?>
   </div>
 </main>

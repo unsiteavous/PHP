@@ -11,7 +11,7 @@ final class Database{
     $utiliseurs = [];
 
     while (($user = fgetcsv($connexion, 1000, ",")) !== FALSE) {
-      $utiliseurs[] = new User($user[1],$user[2],$user[3],$user[4],$user[0]);
+      $utiliseurs[] = new User($user[1],$user[2],$user[3],$user[4],$user[0],$user[5]);
     }
 
     fclose($connexion);
@@ -22,8 +22,8 @@ final class Database{
   public function getThisUtilisateurById(int $id) : User|bool {
     $connexion = fopen($this->_DB, 'r');
     while (($user = fgetcsv($connexion, 1000, ",")) !== FALSE) {
-      if ($user[0] === $id) {
-        $user = new User($user[1],$user[2],$user[3],$user[4],$user[0]);
+      if ((int) $user[0] === $id) {
+        $user = new User($user[1],$user[2],$user[3],$user[4],$user[0],$user[5]);
         break;
       }else {
         $user = false;
@@ -36,7 +36,7 @@ final class Database{
     $connexion = fopen($this->_DB, 'r');
     while (($user = fgetcsv($connexion, 1000, ",")) !== FALSE) {
       if ($user[3] === $mail) {
-        $user = new User($user[1],$user[2],$user[3],$user[4],$user[0]);
+        $user = new User($user[1],$user[2],$user[3],$user[4],$user[0],$user[5]);
         break;
       }else {
         $user = false;
@@ -55,5 +55,20 @@ final class Database{
     return $retour;
   }
 
+  public function deleteThisUser(int $IdUser): bool {
+    if ($this->getThisUtilisateurById($IdUser)) {
+      $utiliseurs = $this->getAllUtilisateurs();
 
+      $connexion = fopen($this->_DB, 'wb');
+      foreach ($utiliseurs as $utiliseur) {
+        if ($utiliseur->getID() !== $IdUser) {
+          $retour = fputcsv($connexion, $utiliseur->getObjectToArray());
+        }
+      }
+      fclose($connexion);
+      return true;
+    } else {
+      return false;
+    }
+  }
 }

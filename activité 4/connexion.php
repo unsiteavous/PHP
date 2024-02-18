@@ -12,7 +12,7 @@ $echec = null;
 if (isset($_GET['succes']) && $_GET['succes'] === "inscription") {
   $succes = true;
 }
-if (isset($_GET['echec'])) {
+if (isset($_GET['erreur'])) {
   $echec = true;
 }
 
