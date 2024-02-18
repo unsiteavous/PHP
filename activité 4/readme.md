@@ -1,48 +1,11 @@
 # PHP - Activité 4 : classes, formulaire et CSV
 
-Pour son site de vente en ligne, votre client souhaite que vous lui fassiez un formulaire d'inscription sur son site. On devra garder une trace de chacune des inscriptions.
+Pour son site d'abonnement à des journaux en ligne, votre client souhaite que vous lui fassiez un formulaire d'inscription sur son site. On devra garder une trace de chacune des inscriptions.
 
-## Construire le HTML
-- Créer un fichier php, dans lequel on vient écrire du HTML.
-- Créer le formulaire, en spécifiant la méthode POST, et le chemin du fichier `traitement.php`.
-- Ajouter au formulaire les champs suivants :
-  - nom
-  - prénom
-  - adresse mail
-  - mot de passe
-  - mot de passe bis
+Cette activité se découpe en de nombreuses parties, et donne à voir un panorama très large de la construction back et des interractions avec le front. Cela reste un exercice, et certains partis pris ne sont pas représentatifs de la réalité de code.
 
-- Vous pourrez ajouter à votre convenance le style et le JS nécessaire à la vérification des champs.
+On fera attention à ranger ses fichiers dans des sous-dossiers bien nommés, à découper son code de manière à ce qu'un fichier ne fasse que ce pour quoi il a été conçu.
 
-## Traitement des informations
-Une fois le formulaire soumis, on a besoin de s'assurer que les infos reçues sont bien celles attendues (Sécurité !).
-- vérifier que tous les champs sont remplis.
-- l'adresse mail a bien le bon format (filter)
-- pas de code malveillant dans les champs textes (sécuriser le HTML)
-- le mot de passe contient bien 8 caractères minimum (hasher)
+Les étapes proposées dans les différents readme amènent à une compréhension générale du code. Il est important de suivre l'ordre de construction, et de ne pas chercher à faire tout une classe sans comprendre les interractions de chaque méthode avec le reste du code.
 
-Si les informations données ne sont pas bonnes, il faudra retourner sur le formulaire et afficher une erreur.
-
-Si tout va bien, on passe à la suite.
-
-## Instanciation de l'utilisateur
-- Construire une classe User, avec les mêmes propriétés que demandé dans le formulaire, + un ID.
-- Cette classe aura tous les getters et setters nécessaires.
-- Elle aura une méthode pour créer un ID unique (pas aléatoire, mais juste le prochain chiffre qui n'est pas encore utilisé dans la liste de nos utilisateurs.) ex : $utilisateurs = [1,2,3,5,6];
-le prochain utilisateur prendra l'ID 4. Celui d'après, l'ID 7.
-
-- une méthode getObjectToArray() retournera toutes les propriétés sous le format d'un tableau.
-
-## Une classe Database
-Bien que nous travaillerons ici avec un fichier CSV comme base de données, nous allons créer une classe spécial qui gérera les connexions, lectures, écritures, ... à notre fichier, à notre base.
-- Cette classe aura comme propriété le fichier CSV auquel se connecter.
-- Elle aura plusieurs méthodes :
-  - une méthode publique pour enregistrer un utilisateur
-  - une méthode publique pour récupérer tous les utilisateurs
-  - une méthode pour retrouver un utilisateur en fonction de son ID
-  - une méthode pour retrouver un utilisateur en fonciton de son mail
-  - supprimer un utilisateur.
-
-## Affichage des retours
-Une fois que le traitement est terminé, nous devons renvoyer des infos à l'utilisateur. Soit tout a fonctionné, et on lui renvoie un message de succès, soit quelque chose s'est mal passé, et c'est l'échec.
-
+Bon travail !

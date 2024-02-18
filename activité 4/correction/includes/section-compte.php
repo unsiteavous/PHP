@@ -14,5 +14,5 @@
       <span><?= $user->getRole() ?></span>
     </div>
   </div>
-  <button onclick="location.href='src/authentication?suppression=<?= $user->getId() ?>'">Supprimer mon compte</button>
+  <button onclick="location.href='src/suppression?suppression=<?= $user->getId() ?>'">Supprimer mon compte</button>
 </section>

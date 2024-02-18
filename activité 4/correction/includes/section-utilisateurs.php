@@ -20,7 +20,7 @@
         <td><?= $utilisateur->getPrenom() ?></td>
         <td><?= $utilisateur->getMail() ?></td>
         <td><?= $utilisateur->getRole() ?></td>
-        <td><button onclick="location.href='src/authentication?suppression=<?= $utilisateur->getId() ?>'">🗑️ Supprimer</button></td>
+        <td><button onclick="location.href='src/suppression?suppression=<?= $utilisateur->getId() ?>'">🗑️ Supprimer</button></td>
       </tr>
     <?php } ?>
   </tbody>
