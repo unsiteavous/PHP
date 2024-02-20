@@ -16,7 +16,7 @@ class User {
    * @param string $password Le mot de passe chiffré de l'utilisateur
    * @param int $id       L'id de l'utilisateur si on le connait, sinon rien.
    */
-  function __construct(string $nom, string $prenom,string $mail,string $password,int|string $id = "à créer", $role = "user"){
+  function __construct(string $nom, string $prenom,string $mail,string $password,int|string $id = "à créer",string $role = "user"){
     $this->setId($id);
     $this->setNom($nom);
     $this->setPrenom($prenom);
@@ -28,7 +28,7 @@ class User {
   public function getId(): int {
     return $this->_id;
   }
-  public function setId(int|string $id){
+  public function setId(int|string $id): void {
     if (is_string($id) && $id === "à créer") {
       $this->_id = $this->CreerNouvelId();
     }else {
@@ -39,25 +39,25 @@ class User {
   public function getNom(): string {
     return $this->_nom;
   }
-  public function setNom(string $nom){
+  public function setNom(string $nom): void {
     $this->_nom = $nom;
   }
   public function getPrenom(): string {
     return $this->_prenom;
   }
-  public function setPrenom(string $prenom){
+  public function setPrenom(string $prenom): void {
     $this->_prenom = $prenom;
   }
   public function getMail(): string {
     return $this->_mail;
   }
-  public function setMail(string $mail){
+  public function setMail(string $mail): void {
     $this->_mail = $mail;
   }
   public function getPassword(): string {
     return $this->_password;
   }
-  public function setPassword(string $password){
+  public function setPassword(string $password): void {
     $this->_password = $password;
   }
 

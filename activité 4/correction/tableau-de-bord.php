@@ -32,7 +32,7 @@ include 'includes/header.php';
     <?php if ($section == "compte") {
       include 'includes/section-compte.php';
     } else { ?>
-      <p>Vous n'avez pas encore d'abonnements.</p>
-    <?php } ?>
+      <p>Bienvenue dans votre tableau de bord !</p>
+  <?php } ?>
   </div>
 </main>

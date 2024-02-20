@@ -28,8 +28,8 @@ switch ($url) {
     <link rel="stylesheet" href="assets/admin.css">
   <?php } else {?>
     <link rel="stylesheet" href="assets/form.css">
+    <script src="assets/script.js" defer></script>
   <?php } ?>
-  <script src="assets/script.js" defer></script>
 </head>
 <body>
 

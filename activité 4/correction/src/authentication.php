@@ -7,7 +7,10 @@ $Database = new Database();
 // Formulaire de connexion soumis :
 if (isset($_POST['mail']) && isset($_POST['password']) && !empty($_POST['mail']) && !empty($_POST['password'])) {
 
-  $userAvecCeMail = $Database->getThisUtilisateurByMail($_POST['mail']);
+  $mail = htmlspecialchars($_POST['mail']);
+
+  $userAvecCeMail = $Database->getThisUtilisateurByMail($mail);
+
   if ($userAvecCeMail) {
     if (password_verify($_POST['password'], $userAvecCeMail->getPassword())) {
       $_SESSION['connecté'] = TRUE;

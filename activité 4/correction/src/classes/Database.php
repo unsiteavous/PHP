@@ -1,5 +1,5 @@
 <?php
-final class Database{
+final class Database {
   private $_DB;
 
   public function __construct(){
@@ -21,7 +21,7 @@ final class Database{
 
   public function getThisUtilisateurById(int $id) : User|bool {
     $connexion = fopen($this->_DB, 'r');
-    while (($user = fgetcsv($connexion, 1000, ",")) !== FALSE) {
+    while (($user = fgetcsv($connexion, 1000)) !== FALSE) {
       if ((int) $user[0] === $id) {
         $user = new User($user[1],$user[2],$user[3],$user[4],$user[0],$user[5]);
         break;
@@ -29,12 +29,13 @@ final class Database{
         $user = false;
       }
     }
+    fclose($connexion);
     return $user;
   }
 
   public function getThisUtilisateurByMail(string $mail) : User|bool {
     $connexion = fopen($this->_DB, 'r');
-    while (($user = fgetcsv($connexion, 1000, ",")) !== FALSE) {
+    while (($user = fgetcsv($connexion, 1000)) !== FALSE) {
       if ($user[3] === $mail) {
         $user = new User($user[1],$user[2],$user[3],$user[4],$user[0],$user[5]);
         break;
@@ -42,6 +43,7 @@ final class Database{
         $user = false;
       }
     }
+    fclose($connexion);
     return $user;
   }
 

@@ -1,11 +1,11 @@
 <?php
-require 'config.php';
-require 'classes/Database.php';
-require 'classes/User.php';
+require_once 'config.php';
+require_once 'classes/Database.php';
+require_once 'classes/User.php';
 
 $Database = new Database();
 
-if (isset($_POST['prenom']) && isset($_POST['nom']) && isset($_POST['mail']) && isset($_POST['password']) && isset($_POST['password2'])) {
+if (isset($_POST['prenom']) && isset($_POST['nom']) && isset($_POST['mail']) && isset($_POST['password']) && isset($_POST['password2']) && !empty($_POST['prenom']) && !empty($_POST['nom']) && !empty($_POST['mail']) && !empty($_POST['password']) && !empty($_POST['password2'])) {
 
   $prenom = htmlspecialchars($_POST['prenom']);
   $nom = htmlspecialchars($_POST['nom']);
