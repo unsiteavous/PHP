@@ -8,13 +8,13 @@
 </head>
 
 <body>
-  <button onclick="appelAjax()">Se connecter au serveur</button>
+  <button onclick="appelFetch()">Se connecter au serveur</button>
   <div id="response"></div>
 
   <script>
     let response = document.getElementById('response');
 
-    function appelAjax() {
+    function appelFetch() {
       fetch('traitement.php', {
         method: "GET",
         headers: {

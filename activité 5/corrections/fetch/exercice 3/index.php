@@ -10,7 +10,7 @@
 <body>
   <label for="prenom">Prenom :</label><input type="text" id="prenom"><br>
   <label for="age">Âge :</label><input type="number" id="age"><br>
-  <button onclick="appelAjax()">Soumettre</button>
+  <button onclick="appelFetch()">Soumettre</button>
 
 
   <div id="response"></div>
@@ -19,7 +19,7 @@
     let age = document.getElementById('age').value;
     let response = document.getElementById('response');
 
-    function appelAjax() {
+    function appelFetch() {
       fetch('traitement.php', {
         method: "POST",
         headers: {
