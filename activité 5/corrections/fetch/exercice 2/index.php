@@ -8,18 +8,24 @@
 </head>
 
 <body>
-  <button onclick="appelFetch()">Se connecter au serveur</button>
+  <label for="prenom">Prénom :</label><input type="text" id="prenom"><br>
+  <label for="age">Âge :</label><input type="number" id="age"><br>
+  <button onclick="appelFetch()">Envoyer</button>
   <div id="response"></div>
 
   <script>
-    let response = document.getElementById('response');
-
+    
     function appelFetch() {
+      let prenom = document.getElementById('prenom').value;
+      let age = document.getElementById('age').value;
+      let response = document.getElementById('response');
       fetch('traitement.php', {
         method: "POST",
         headers: {
           'Content-Type': 'application/x-www-form-urlencoded',
-        }
+        },
+        body: "prenom="+prenom+"&age="+age
+
       }).then(retour => {
         if (!retour.ok) {
           throw new Error('La connexion au serveur est cassée');

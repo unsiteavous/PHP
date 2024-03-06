@@ -15,11 +15,11 @@
 
   <div id="response"></div>
   <script>
-    let prenom = document.getElementById('prenom').value;
-    let age = document.getElementById('age').value;
-    let response = document.getElementById('response');
-
+    
     function appelFetch() {
+      let prenom = document.getElementById('prenom').value;
+      let age = document.getElementById('age').value;
+      let response = document.getElementById('response');
       fetch('traitement.php', {
         method: "POST",
         headers: {
