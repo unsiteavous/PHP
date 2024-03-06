@@ -16,7 +16,7 @@
 
     function appelAjax() {
       fetch('traitement.php', {
-        method: "POST",
+        method: "GET",
         headers: {
           'Content-Type': 'application/x-www-form-urlencoded',
         }
@@ -25,10 +25,15 @@
           throw new Error('La connexion au serveur est cassée');
         }
         return retour.text();
-      }).then(data => {
-        response.innerHTML += data + "<br>";
+      }).then(donnee => {
+        response.innerHTML += donnee + "<br>";
       })
+
+      // la même chose en plus rapide : 
+      fetch('traitement.php').then(retour => retour.text()).then(data => console.log(data));
     }
+
+   
   </script>
 </body>
 

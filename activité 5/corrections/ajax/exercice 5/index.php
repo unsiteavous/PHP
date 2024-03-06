@@ -40,7 +40,7 @@
 
       // Envoyer la requête :
 
-      requete.send(JSON.stringify(mdp));
+      requete.send(JSON.stringify({"mdp": mdp}));
 
       // Écouter le changement du retour :
 
