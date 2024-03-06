@@ -38,8 +38,6 @@
 
       // Écouter le changement du retour :
 
-
-        // Dans un for, écouter de 1 à 4 les états (readyState)
         // https://developer.mozilla.org/fr/docs/Web/API/XMLHttpRequest/readyState
 
         // https://developer.mozilla.org/fr/docs/Web/API/XMLHttpRequest/status

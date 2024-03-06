@@ -27,6 +27,8 @@
         return retour.text();
       }).then(donnee => {
         response.innerHTML += donnee + "<br>";
+      }).catch(error => {
+        console.error('Une erreur est survenue : ', error);
       })
 
       // la même chose en plus rapide : 

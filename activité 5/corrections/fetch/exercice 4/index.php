@@ -16,14 +16,12 @@
     <input type="button" value="allons-y !" onclick="hashmdp()">
   </form>
 
-  <div id="progress"></div>
   <div id="resultat"></div>
 
   <script>
     function hashmdp() {
-      var mdp = document.getElementById('mdp').value;
-      var progress = document.getElementById('progress');
-      var resultat = document.getElementById('resultat');
+      let mdp = document.getElementById('mdp').value;
+      let resultat = document.getElementById('resultat');
 
 
       // Les options par défaut sont indiquées par *
@@ -56,6 +54,7 @@
         });
 
     }
+
   </script>
 </body>
 

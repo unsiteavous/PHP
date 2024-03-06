@@ -33,6 +33,8 @@
         return retour.text();
       }).then(data => {
         response.innerHTML += data + "<br>";
+      }).catch(error => {
+        console.error('Une erreur est survenue : ', error);
       })
     }
   </script>
