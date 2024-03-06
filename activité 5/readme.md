@@ -115,6 +115,8 @@ Il va falloir changer le header content-type : `application/json`.
 
 Il faudra utiliser `stringify` pour préparer le body de la requête, et `response.json()` pour récupérer la réponse dans le bon format.
 
+Côté back, la réception change aussi. Si on n'envoie plus les données sous forme d'url encodée, les données ne peuvent pas être récupérées en $_POST ou $_GET. Il faut donc utiliser `file_get_contents('php://input')`.
+
 ### Exercice 3 : Chiffrer un mot de passe
 
 Récupérez le fichier `index.php` et créez un fichier `traitement.php`.
@@ -129,8 +131,6 @@ Dans index.php, écoutez la réponse du serveur, et affichez-la au bon endroit.
 ### Exercice 4 : envoyer des infos au serveur en JSON
 
 On va refaire le même exercice en changeant le mode d'envoi des données. Cette fois-ci on veut passer du JSON. le content-type change. 
-
-Côté back, la réception change aussi. Si on n'envoie plus les données sous forme d'url encodée, les données ne peuvent pas être récupérées en $_POST ou $_GET. Il faut donc utiliser `file_get_contents('php://input')`.
 
 Récupérez les données reçues, hashez le mot de passe.
 

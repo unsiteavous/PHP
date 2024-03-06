@@ -28,7 +28,7 @@
 
       // l'ouvrir, en lui donnant 3 paramètres :
       // https://developer.mozilla.org/fr/docs/Web/API/XMLHttpRequest/open
-      requete.open('POST', 'traitement-correction.php', true);
+      requete.open('POST', 'traitement.php', true);
 
 
       // Donner ensuite au header le content-type correspondant : 
