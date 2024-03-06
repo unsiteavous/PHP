@@ -22,7 +22,7 @@ Ici, l'idée va être similaire :
 
 Dans un premier temps, dans un fichier de traitement, vous affichez simplement "connexion réussie".
 
-dans un fichier ajax.php, vous devez écouter le retour de traitement.
+dans un fichier index.php, vous devez écouter le retour de traitement.
 Construisez une requête AJAX, qui vous permet d'afficher la réponse, à chaque clic sur un bouton.
 
 ### Exercice 2 : envoyer des infos au serveur
@@ -43,16 +43,22 @@ On va refaire le même exercice que le 2, mais en envoyant les infos en JSON. De
 
 Il va falloir changer le header content-type : `application/json`.
 
+Côté back, la réception change aussi. Si on n'envoie plus les données sous forme d'url encodée, les données ne peuvent pas être récupérées en $_POST ou $_GET. Il faut donc utiliser `file_get_contents('php://input')`.
+
+Ensuite renvoyez-le sous format JSON. là aussi, il faut mettre un header avec le bon format, et encoder la réponse.
+
+Enfin dans index.php, décomposer le JSON pour l'afficher.
+
 ### Exercice 4 : Chiffrer un mot de passe
 
-Récupérez le fichier `ajax.php` et créez un fichier `traitement.php`.
+Récupérez le fichier `index.php` et créez un fichier `traitement.php`.
 
 envoyez le mot de passe à hasher en méthode POST, avec le bon content-type dans le header.
 
 Dans le traitement, écoutez la variable `$_POST` pour récupérer le mot de passe.
 Utilisez la méthode PHP de hashage des mots de passe, puis affichez le résultat.
 
-Dans ajax.php, écoutez la réponse du serveur, et affichez-la au bon endroit.
+Dans index.php, écoutez la réponse du serveur, et affichez-la au bon endroit.
 
 ### Exercice 5 : envoyer des infos au serveur en JSON
 
@@ -64,7 +70,7 @@ Récupérez les données reçues, hashez le mot de passe.
 
 Ensuite renvoyez-le sous format JSON. là aussi, il faut mettre un header avec le bon format, et encoder la réponse.
 
-Enfin dans ajax.php, décomposer le JSON pour l'afficher.
+Enfin dans index.php, décomposer le JSON pour l'afficher.
 
 ## Partie 2 : fetch
 Il existe une seconde manière de se connecter au serveur de manière asynchrone, `fetch`.
@@ -88,7 +94,7 @@ On écoutera si la réponse est valide avec `response.ok`, puis on pourra récup
 
 Dans un premier temps, dans un fichier de traitement, vous affichez simplement "connexion réussie".
 
-dans un fichier fetch.php, vous devez écouter le retour de traitement.
+dans un fichier index.php, vous devez écouter le retour de traitement.
 Construisez une requête fetch, qui vous permet d'afficher la réponse, à chaque clic sur un bouton.
 Dans la requête fetch, vous donnerez l'adresse du fichier de traitement en premier paramètre, puis un objet d'options, avec comme méthode, GET, et comme header `application/x-www-form-urlencoded`.
 
@@ -117,7 +123,11 @@ Il faudra utiliser `stringify` pour préparer le body de la requête, et `respon
 
 Côté back, la réception change aussi. Si on n'envoie plus les données sous forme d'url encodée, les données ne peuvent pas être récupérées en $_POST ou $_GET. Il faut donc utiliser `file_get_contents('php://input')`.
 
-### Exercice 3 : Chiffrer un mot de passe
+Ensuite renvoyez-le sous format JSON. là aussi, il faut mettre un header avec le bon format, et encoder la réponse.
+
+Enfin dans index.php, décomposer le JSON pour l'afficher.
+
+### Exercice 4 : Chiffrer un mot de passe
 
 Récupérez le fichier `index.php` et créez un fichier `traitement.php`.
 
@@ -128,7 +138,7 @@ Utilisez la méthode PHP de hashage des mots de passe, puis affichez le résulta
 
 Dans index.php, écoutez la réponse du serveur, et affichez-la au bon endroit.
 
-### Exercice 4 : envoyer des infos au serveur en JSON
+### Exercice 5 : envoyer des infos au serveur en JSON
 
 On va refaire le même exercice en changeant le mode d'envoi des données. Cette fois-ci on veut passer du JSON. le content-type change. 
 
