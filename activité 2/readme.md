@@ -12,9 +12,9 @@ Maintenant qu’on a vu comment on envoie du html sur une page web, on a envie d
 ### Recevoir l’information
 ✅ Method : POST
 
-✅ action : « votrefichier.php »
+✅ action : « traitement.php »
 
-✅ ensuite dans notre fichier.php : `$_POST['info'] ...`
+✅ ensuite dans notre traitement.php : `$_POST['info'] ...`
 
 ### Puis la vérifier.
 ✅ Empty, isset, …

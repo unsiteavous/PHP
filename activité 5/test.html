@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+
+
+
+
+  <script>
+    let url = 'https://script.google.com/macros/s/AKfycbyLvKBtwTHCDFjGEXu7oflR2688K-Sa61z0Ou10IPX3HbrRFyYbvolv4w3dMvxtdQcz/exec';
+
+    let data = {
+      id_user: 4,
+      prenom: "Josselin",
+      age: 45
+    }
+
+    fetch(url, {
+      crossDomain: true,
+      method: 'POST',
+      redirect: 'follow',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(data)
+    }).then(retour => {
+      if (!retour.ok) {
+        throw new Error('La connexion au serveur est cassée');
+      }
+      return retour.json();
+    }).then(data => {
+      console.log(data);
+    }).catch(error => {
+      console.error('Une erreur est survenue : ', error);
+    })
+  </script>
+</body>
+
+</html>
