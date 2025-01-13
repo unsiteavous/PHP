@@ -1,7 +1,4 @@
 <?php
-echo "page de traitement";
-
-var_dump($_POST);
 
 if (isset($_POST['prenom']) &&
     isset($_POST['nom']) &&
@@ -14,16 +11,24 @@ if (isset($_POST['prenom']) &&
     !empty($_POST['objet']) &&
     !empty($_POST['message'])
 ) {
-  if(!filter_var($_POST['email'],FILTER_VALIDATE_EMAIL )) {
-    echo "l'email n'a pas le bon format";
+  $email = strtolower(sanitize($_POST['email']));
+
+  if(!filter_var($email,FILTER_VALIDATE_EMAIL )) {
+    header("location:/index.php?erreur=l'email n'a pas le bon format");
     die;
   }
   $prenom = ucfirst(strtolower(sanitize($_POST['prenom'])));
   $nom = ucfirst(strtolower(sanitize($_POST['nom'])));
+  if(strlen($_POST['objet']) > 100) {
+    echo "l'objet est trop long";
+    die;
+  }
+  $objet = sanitize($_POST['objet']);
   $message = sanitize($_POST['message']);
-  var_dump($prenom,$nom,$message);
-  echo $message;
-  
+
+  // Enregistrement des données
+
+  echo "Le formulaire a bien été envoyé";
 
 } else {
   echo "Il manque des informations";

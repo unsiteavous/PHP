@@ -30,8 +30,11 @@ $tableau = ["Raphaël", "Yanis", "Mylène", "Raiana"];
     <input type="text" id="nom" name="nom" required minlength="2">
     <label for="email">Email :</label>
     <input type="email" id="email" name="email" placeholder="email@domaine.fr">
+    <?php if(isset($_GET['erreur'])){ ?>
+      <p style='color:red'> <?php echo $_GET['erreur'] ?></p>
+    <?php } ?>
     <label for="objet">Objet du message :</label>
-    <input type="text" id="objet" name="objet" required>
+    <input type="text" id="objet" name="objet" required maxlength="100">
     <label for="message">Message :</label>
     <textarea name="message" id="message" cols="50" rows="10" required placeholder="Votre message"></textarea>
 
