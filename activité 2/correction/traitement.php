@@ -1,5 +1,5 @@
 <?php
-
+$url = "location:/index.php?";
 if (isset($_POST['prenom']) &&
     isset($_POST['nom']) &&
     isset($_POST['email']) &&
@@ -14,25 +14,28 @@ if (isset($_POST['prenom']) &&
   $email = strtolower(sanitize($_POST['email']));
 
   if(!filter_var($email,FILTER_VALIDATE_EMAIL )) {
-    header("location:/index.php?erreur=l'email n'a pas le bon format");
-    die;
+    $url = $url . "erreurEmail=l'email n'a pas le bon format";
   }
   $prenom = ucfirst(strtolower(sanitize($_POST['prenom'])));
   $nom = ucfirst(strtolower(sanitize($_POST['nom'])));
   if(strlen($_POST['objet']) > 100) {
-    echo "l'objet est trop long";
-    die;
+    $url = $url . "&erreurObjet=l'objet est trop long";
   }
   $objet = sanitize($_POST['objet']);
   $message = sanitize($_POST['message']);
 
   // Enregistrement des données
-
-  echo "Le formulaire a bien été envoyé";
+  $url = $url . "success=Le formulaire a bien été envoyé";
 
 } else {
-  echo "Il manque des informations";
+  $url = $url . "&erreurChamps=Il manque des informations";
 }
+
+header($url);
+
+
+
+
 
 function sanitize(string $string): string {
   $forbiddenCharacters = ["<",">","/","<?php","<?"];
