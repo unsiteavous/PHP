@@ -7,13 +7,12 @@ class Database
   public function createUser(User $user): bool
   {
     try {
-    $connexion = fopen($this->userDatabase, 'ab');
-    fputcsv($connexion, $user->getObjectToArray());
-    fclose($connexion);
-    return true;
-
+      $connexion = fopen($this->userDatabase, 'ab');
+      fputcsv($connexion, $user->getObjectToArray());
+      fclose($connexion);
+      return true;
     } catch (Exception $exception) {
-      echo "Une erreur est survenue lors de l'enregistrement de l'utilisateur : " . $exception->getMessage() . ' : '. $exception->getLine();
+      echo "Une erreur est survenue lors de l'enregistrement de l'utilisateur : " . $exception->getMessage() . ' : ' . $exception->getLine();
       return false;
     }
   }
