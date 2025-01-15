@@ -10,6 +10,13 @@
 </head>
 <body>
   <h1>Formulaire d'inscription</h1>
+  <?php if (isset($_GET['erreur'])) { ?>
+    <p style="color: red;"><?php echo $_GET['erreur']; ?></p>
+  <?php } ?>
+  <?php if (isset($_GET['success'])) { ?>
+    <p style="color: green;"><?php echo $_GET['success']; ?></p>
+  <?php } ?>
+  
   <form action="src/traitement.php" method="POST">
     <?php if (isset($_GET['erreur'])) { ?>
       <p style="color: red;"><?php echo $_GET['erreurChampsVide']; ?></p>

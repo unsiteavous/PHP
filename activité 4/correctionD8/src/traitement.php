@@ -1,6 +1,7 @@
 <?php
 require "config.php";
 require "classes/User.php";
+require "classes/Database.php";
 
 if (
   !isset($_POST['nom']) ||
@@ -28,19 +29,22 @@ if (strlen($_POST['password']) < 8) {
   die;
 }
 
-$nom = ucfirst(strtolower(htmlspecialchars($_POST['nom'])));
-$prenom = ucfirst(strtolower(htmlspecialchars($_POST['prenom'])));
-$email = strtolower(htmlspecialchars($_POST['email']));
-$password = htmlspecialchars($_POST['password']);
-$passwordconfirm = htmlspecialchars($_POST['passwordconfirm']);
-
-if ($password !== $passwordconfirm) {
+if ($_POST['password'] !== $_POST['passwordconfirm']) {
   header('location:'.URL_SITE.'?erreurPasswordConfirm=Les mots de passe ne correspondent pas');
   die;
 }
 
-$hash = password_hash($password, PASSWORD_DEFAULT);
+$user = new User(prenom: $_POST['prenom'],nom: $_POST['nom'],email: $_POST['email'],password: $_POST['password']);
 
-$user = new User($prenom, $nom, $email, $hash);
 
 var_dump($user);
+
+$database = new Database();
+
+if ($database->createUser($user)) {
+  header('location:'.URL_SITE.'?success=Votre compte a bien été créé');
+  die;
+} else {
+  header('location:'.URL_SITE.'?erreur=Une erreur est survenue lors de la création de votre compte');
+  die;
+}
