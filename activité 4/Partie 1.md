@@ -19,9 +19,9 @@ Une fois le formulaire soumis, on a besoin de s'assurer que les infos reçues so
 - vérifier que tous les champs sont remplis.
 - l'adresse mail a bien le bon format (filter)
 - pas de code malveillant dans les champs textes (sécuriser le HTML)
-- le mot de passe contient bien 8 caractères minimum (hasher)
+- le mot de passe contient bien 8 caractères minimum 
 - les deux mots de passes donnés sont identiques.
-- on va chiffrer le mot de passe.
+- on va chiffrer (hasher) le mot de passe.
 
 Si les informations données ne sont pas bonnes, il faudra retourner sur le formulaire et afficher une erreur. Afin de renvoyer les erreurs, on passera en paramètre get erreur=1 par exemple.
 
